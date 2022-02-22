@@ -46,6 +46,10 @@ app.get('/', function(request, response) {
     let r = users.find({}).toArray(function(err,documents){
         response.send(JSON.stringify(documents))
     })
+    let r  = books.find({}).toArray(function(err, documents){
+        response.send(JSON.stringify(documents))
+    });
+    
     console.log(r)
 })
 

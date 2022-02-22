@@ -19,7 +19,7 @@
   "homepage": "https://github.com/qbclub/Server#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "mongo": "^0.1.0"
   }
 }
