@@ -34,7 +34,11 @@ app.use(express.json())
 
 // Запрос с адреса: http://localhost:3000/
 app.get('/', function(request, response) {
-    response.send('Hello world!')
+    let r  = books.find({}).toArray(function(err, documents){
+        response.send(JSON.stringify(documents))
+    });
+    
+    console.log(r)
 })
 
 
