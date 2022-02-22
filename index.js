@@ -20,6 +20,7 @@ mongoClient.connect(url, function (err, client) {
     books = database.collection("books")
     bookflow = database.collection("bookflow")
     users = database.collection("users")
+    
 
     console.log('mongo connected')
 })
@@ -32,11 +33,21 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 
-// Запрос с адреса: http://localhost:3000/
-app.get('/', function(request, response) {
-    response.send('Hello world!')
-})
 
+
+
+
+
+
+
+
+app.get('/', function(request, response) {
+  
+    let r = users.find({}).toArray(function(err,documents){
+        response.send(JSON.stringify(documents))
+    })
+    console.log(r)
+})
 
 
 
