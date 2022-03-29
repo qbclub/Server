@@ -4,27 +4,6 @@ const app = express()
 const port = 3000;
 var cors = require('cors')
 
-let mongoClient = require('mongodb').MongoClient
-
-const {
-    url
-} = require('./password');
-const {
-    response
-} = require('express');
-
-let books, bookflow, users
-mongoClient.connect(url, function (err, client) {
-    let database = client.db("libraryFromNode")
-
-    books = database.collection("books")
-    bookflow = database.collection("bookflow")
-    users = database.collection("users")
-    
-
-    console.log('mongo connected')
-})
-
 
 app.use(cors())
 app.use(express.urlencoded({
@@ -33,25 +12,10 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 
+const booksFunctions = require('./middlewares/booksFunctions')
 
 
-
-
-// ================================================================================================================
-
-
-
-app.get('/', function(request, response) {
-    let r  = books.find({}).toArray(function(err, documents){
-        response.send(JSON.stringify(documents))
-    });
-    
-    console.log(r)
-})
-
-
-
-
+app.get('/', booksFunctions.getAll)
 
 
 app.listen(port, function() {
