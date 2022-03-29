@@ -13,9 +13,11 @@ app.use(express.json())
 
 
 const booksFunctions = require('./middlewares/booksFunctions')
+const { updateBook } = require('./middlewares/updateBook')
 
 
 app.get('/', booksFunctions.getAll)
+app.get('/update', updateBook)
 
 
 app.listen(port, function() {
