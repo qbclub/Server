@@ -15,13 +15,16 @@ app.use(express.json())
 const booksFunctions = require('./middlewares/booksFunctions')
 const { updateBook } = require('./middlewares/updateBook');
 const { getBookById } = require('./middlewares/getbooksbyId');
+const { deletebooks } = require('./middlewares/deletebooksbyId');
 
 
 app.get('/', booksFunctions.getAll)
 app.get('/update', updateBook)
 app.get('/getbooksbyId', getBookById)
+app.get('/deletebookbyId', deletebooks)
 
 
 app.listen(port, function () {
     console.log(`App listening on port ${port}`)
 })
+
