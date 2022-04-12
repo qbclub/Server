@@ -19,10 +19,9 @@ const { getBookById } = require('./middlewares/getbooksbyId');
 
 app.get('/', booksFunctions.getAll)
 app.get('/update', updateBook)
+app.get('/getbooksbyId', getBookById)
 
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log(`App listening on port ${port}`)
 })
-
-app.get('/getbooksbyId', getBookById)
