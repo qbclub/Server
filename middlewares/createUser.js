@@ -1,11 +1,11 @@
 const { getUsers } = require('../mongo')
 let user = {name: "dfsgdsg"};
 
-function createuser(request, response){
+function createUser(request, response){
     let users = getUsers()
 
-    user.insertOne(user)
+    users.insertOne(user)
 }
 module.exports = {
-    createuser
+    createUser
 }
