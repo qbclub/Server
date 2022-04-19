@@ -1,6 +1,6 @@
 const { getBooks } = require('../mongo')
 
-function deletebooks(request, response) {
+function deleteBookById(request, response) {
     const books = getBooks()
 
     books.deleteOne(
@@ -10,6 +10,6 @@ function deletebooks(request, response) {
 }
 
 module.exports = {
-    deletebooks
+    deleteBookById
     
 }
