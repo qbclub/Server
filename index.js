@@ -18,6 +18,7 @@ const { getBookById } = require('./middlewares/getbooksbyId');
 const { createbook } = require('./middlewares/createbooks');
 const { deleteBookById } = require('./middlewares/deletebooksbyId')
 const { getUsersByEmail } = require('./middlewares/emailCollection')
+const { getAllUsers } = require('./middlewares/getallusers')
 
 
 app.get('/', booksFunctions.getAll)
@@ -26,6 +27,7 @@ app.get('/getbooksbyId', getBookById)
 app.get('/create', createbook)
 app.get('/deletebookbyid', deleteBookById)
 app.get('/getuserbyemail', getUsersByEmail)
+app.get('/getallusers', getAllUsers)
 
 
 app.listen(port, function () {
