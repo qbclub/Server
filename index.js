@@ -21,6 +21,8 @@ const { getUsersByEmail } = require('./middlewares/emailCollection')
 const { getAllUsers } = require('./middlewares/getallusers')
 const { deleteUserByEmail } = require('./middlewares/deleteuserbyemail')
 const { createUser } = require('./middlewares/createUser')
+const { getAllTasks } = require('./middlewares/getAllTasks')
+const { createTask } = require('./middlewares/createTask')
 
 
 app.get('/', booksFunctions.getAll)
@@ -32,7 +34,10 @@ app.get('/getuserbyemail', getUsersByEmail)
 app.get('/getallusers', getAllUsers)
 app.get('/deleteuserbyemail', deleteUserByEmail)
 app.get('/createuser', createUser)
+app.get('/get-all-tasks', getAllTasks)
 
+
+app.post('/create-task', createTask)
 
 app.listen(port, function () {
     console.log(`App listening on port ${port}`)
